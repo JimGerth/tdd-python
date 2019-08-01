@@ -1,5 +1,6 @@
 import unittest
 from franc import Franc
+from dollar import Dollar
 
 
 class FrancTest(unittest.TestCase):
@@ -13,3 +14,4 @@ class FrancTest(unittest.TestCase):
     def test_equality(self):
         self.assertTrue(Franc(5) == Franc(5))
         self.assertFalse(Franc(5) == Franc(6))
+        self.assertFalse(Franc(5) == Dollar(5))
