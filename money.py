@@ -9,12 +9,10 @@ class Money:
         return self._amount == money._amount and self._currency == money.currency()
 
     def dollar(amount):
-        from dollar import Dollar
-        return Dollar(amount, 'USD')
+        return Money(amount, 'USD')
 
     def franc(amount):
-        from franc import Franc
-        return Franc(amount, 'CHF')
+        return Money(amount, 'CHF')
 
     def currency(self):
         return self._currency

@@ -16,4 +16,3 @@ class DollarTest(unittest.TestCase):
 
     def test_currency(self):
         self.assertEqual('USD', Money.dollar(1).currency())
-        self.assertTrue(Money(10, 'USD') == Money.dollar(10))
