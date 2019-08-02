@@ -6,5 +6,5 @@ class Sum:
         self._augend = augend
         self._addend = addend
 
-    def reduce(self, currency):
+    def reduce(self, bank, currency):
         return Money(self._augend.amount + self._addend.amount, currency)

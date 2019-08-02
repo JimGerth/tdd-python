@@ -24,6 +24,5 @@ class Money:
         from sum import Sum
         return Sum(self, addend)
 
-    def reduce(self, currency):
-        return self
-
+    def reduce(self, bank, currency):
+        return Money(self.amount / bank.rate(self.currency(), currency), currency)

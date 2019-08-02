@@ -22,3 +22,11 @@ class FrancTest(unittest.TestCase):
         self.assertTrue(Bank().reduce(Money.franc(1), 'CHF') == Money.franc(1))
         self.assertTrue(Bank().reduce(Money.franc(5).plus(Money.franc(5)), 'CHF') == Money.franc(10))
         self.assertTrue(Bank().reduce(Money.franc(10).plus(Money.franc(10)), 'CHF') == Money.franc(20))
+
+    def test_currency_conversion(self):
+        bank = Bank()
+        bank.addRate('CHF', 'USD', 2)
+        self.assertTrue(bank.reduce(Money.franc(2), 'USD') == Money.dollar(1))
+
+    def test_identity_rate(self):
+        self.assertTrue(Bank().rate('CHF', 'CHF') == 1)
