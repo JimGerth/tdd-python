@@ -3,4 +3,8 @@ from money import Money
 class Bank:
 
     def reduce(self, expression, currency):
-        return expression.reduce(currency)
+        try:
+            result = expression.reduce(currency)
+        except:
+            print("could not reduce expression")
+        return result
