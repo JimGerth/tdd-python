@@ -31,6 +31,11 @@ class DollarTest(unittest.TestCase):
     def test_multiple_addition(self):
         self.assertTrue(Bank().reduce(Money.dollar(5).plus(Money.dollar(10)).plus(Money.dollar(15)), 'USD') == Money.dollar(30))
 
+    def test_sum_times(self):
+        bank = Bank()
+        bank.addRate('CHF', 'USD', 2)
+        self.assertTrue(bank.reduce(Money.dollar(5).plus(Money.franc(10)).times(2), 'USD'), Money.dollar(20))
+
     def test_currency_conversion(self):
         bank = Bank()
         bank.addRate('USD', 'CHF', 2)

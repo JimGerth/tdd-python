@@ -11,3 +11,6 @@ class Sum:
 
     def plus(self, addend):
         return Sum(self, addend)
+
+    def times(self, multiplier):
+        return Sum(self._augend.times(multiplier), self._addend.times(multiplier))
