@@ -23,6 +23,14 @@ class FrancTest(unittest.TestCase):
         self.assertTrue(Bank().reduce(Money.franc(5).plus(Money.franc(5)), 'CHF') == Money.franc(10))
         self.assertTrue(Bank().reduce(Money.franc(10).plus(Money.franc(10)), 'CHF') == Money.franc(20))
 
+    def test_mixed_addition(self):
+        bank = Bank()
+        bank.addRate('CHF', 'USD', 2)
+        self.assertTrue(bank.reduce(Money.dollar(5).plus(Money.franc(10)), 'USD') == Money.dollar(10))
+
+    def test_multiple_addition(self):
+        self.assertTrue(Bank().reduce(Money.franc(5).plus(Money.franc(10)).plus(Money.franc(15)), 'CHF') == Money.franc(30))
+
     def test_currency_conversion(self):
         bank = Bank()
         bank.addRate('CHF', 'USD', 2)
