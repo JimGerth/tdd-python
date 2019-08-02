@@ -20,3 +20,6 @@ class Money:
     def times(self, multiplier):
         return Money(self._amount * multiplier, self._currency)
 
+    def plus(self, added):
+        return Money(self._amount + added._amount, self.currency())
+

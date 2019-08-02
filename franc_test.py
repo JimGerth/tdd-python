@@ -16,3 +16,6 @@ class FrancTest(unittest.TestCase):
 
     def test_currency(self):
         self.assertEqual('CHF', Money.franc(1).currency())
+
+    def test_simple_addition(self):
+        self.assertEqual(Money.franc(10).plus(Money.franc(10)), Money.franc(20))
