@@ -13,3 +13,6 @@ class Calculator:
 
     def multiply(self, money, by):
         return Money(money.amount * by, money.currency)
+
+    def compare(self, money1, money2):
+        return money1.currency == money2.currency and money1.amount == money2.amount

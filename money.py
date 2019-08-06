@@ -15,9 +15,6 @@ class Money:
         assert type(self) == Money
         return self._currency
 
-    def __eq__(self, money):
-        return self.amount == money.amount and self.currency == money.currency
-
     def dollar(amount):
         return Money(amount, 'USD')
 

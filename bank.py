@@ -43,3 +43,6 @@ class Bank:
             assert money1.currency == money2.currency
             currency = money1.currency
         return self.calc.subtract(self.convert(money1, currency), self.convert(money2, currency))
+
+    def compare(self, money1, money2):
+        return self.calc.compare(money1, self.convert(money2, money1.currency))
