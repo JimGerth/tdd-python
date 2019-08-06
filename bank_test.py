@@ -30,7 +30,7 @@ class BankTest(unittest.TestCase):
         self.assertTrue(Bank().add(Bank().add(Money.dollar(5), Money.dollar(10)), Money.dollar(15)) == Money.dollar(30))
 
     def test_simple_multiplication(self):
-        self.assertTrue(Bank().reduce(Money.franc(10) * 2, 'CHF') == Money.franc(20))
+        self.assertTrue(Bank().multiply(Money.franc(10), 2) == Money.franc(20))
 
     def test_multiplication_of_sum(self):
-        self.assertTrue(Bank().reduce((Money.franc(5) + Money.franc(5)) * 3, 'CHF') == Money.franc(30))
+        self.assertTrue(Bank().multiply(Bank().add(Money.franc(5), Money.franc(5)), 3) == Money.franc(30))

@@ -31,3 +31,8 @@ class Bank:
         if not currency:
             currency = money1.currency
         return self.calc.add(self.convert(money1, currency), self.convert(money2, currency))
+
+    def multiply(self, money, by, currency=None):
+        if not currency:
+            currency = money.currency
+        return self.calc.multiply(self.convert(money, currency), by)
