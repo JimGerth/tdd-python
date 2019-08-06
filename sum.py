@@ -6,11 +6,11 @@ class Sum:
         self._augend = augend
         self._addend = addend
 
-    def reduce(self, bank, currency):
-        return Money(bank.reduce(self._augend, currency).amount + bank.reduce(self._addend, currency).amount, currency)
-
-    def plus(self, addend):
+    def __add__(self, addend):
         return Sum(self, addend)
 
-    def times(self, multiplier):
-        return Sum(self._augend.times(multiplier), self._addend.times(multiplier))
+    def __mul__(self, multiplier):
+        return Sum(self._augend * multiplier, self._addend * multiplier)
+
+    def reduce(self, bank, currency):
+        return Money(bank.reduce(self._augend, currency).amount + bank.reduce(self._addend, currency).amount, currency)
