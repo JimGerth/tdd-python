@@ -15,7 +15,7 @@ class BankTest(unittest.TestCase):
     def test_currency_conversion(self):
         bank = Bank()
         bank.addRate('CHF', 'USD', 2)
-        self.assertTrue(bank.reduce(Money.franc(10), 'USD') == Money.dollar(5))
+        self.assertTrue(bank.convert(Money.franc(10), 'USD') == Money.dollar(5))
 
     def test_simple_addition(self):
         self.assertTrue(Bank().reduce(Money.dollar(5) + Money.dollar(5), 'USD') == Money.dollar(10))

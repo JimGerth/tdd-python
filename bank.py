@@ -18,3 +18,6 @@ class Bank:
     def rate(self, currency1, currency2):
         if currency1 == currency2: return 1
         return self.rates[(currency1, currency2)]
+
+    def convert(self, money, to):
+        return Money(money.amount / self.rate(money.currency, to), to)
