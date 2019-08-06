@@ -34,3 +34,6 @@ class BankTest(unittest.TestCase):
 
     def test_multiplication_of_sum(self):
         self.assertTrue(Bank().multiply(Bank().add(Money.franc(5), Money.franc(5)), 3) == Money.franc(30))
+
+    def test_subtraction(self):
+        self.assertTrue(Bank().subtract(Money.dollar(10), Money.dollar(5)) == Money.dollar(5))

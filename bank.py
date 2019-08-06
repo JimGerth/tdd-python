@@ -29,6 +29,7 @@ class Bank:
 
     def add(self, money1, money2, currency=None):
         if not currency:
+            assert money1.currency == money2.currency
             currency = money1.currency
         return self.calc.add(self.convert(money1, currency), self.convert(money2, currency))
 
@@ -36,3 +37,9 @@ class Bank:
         if not currency:
             currency = money.currency
         return self.calc.multiply(self.convert(money, currency), by)
+
+    def subtract(self, money1, money2, currency=None):
+        if not currency:
+            assert money1.currency == money2.currency
+            currency = money1.currency
+        return self.calc.subtract(self.convert(money1, currency), self.convert(money2, currency))
