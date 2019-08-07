@@ -27,22 +27,22 @@ class Bank:
             return money
         return Money(money.amount / self.rate(money.currency, to), to)
 
-    def add(self, money1, money2, currency=None):
-        if not currency:
+    def add(self, money1, money2, to=None):
+        if not to:
             assert money1.currency == money2.currency
-            currency = money1.currency
-        return self.calc.add(self.convert(money1, currency), self.convert(money2, currency))
+            to = money1.currency
+        return self.calc.add(self.convert(money1, to), self.convert(money2, to))
 
-    def multiply(self, money, by, currency=None):
-        if not currency:
-            currency = money.currency
-        return self.calc.multiply(self.convert(money, currency), by)
+    def multiply(self, money, by, to=None):
+        if not to:
+            to = money.currency
+        return self.calc.multiply(self.convert(money, to), by)
 
-    def subtract(self, money1, money2, currency=None):
-        if not currency:
+    def subtract(self, money1, money2, to=None):
+        if not to:
             assert money1.currency == money2.currency
-            currency = money1.currency
-        return self.calc.subtract(self.convert(money1, currency), self.convert(money2, currency))
+            to = money1.currency
+        return self.calc.subtract(self.convert(money1, to), self.convert(money2, to))
 
-    def compare(self, money1, money2):
-        return self.calc.compare(money1, self.convert(money2, money1.currency))
+    def compare(self, money1, to):
+        return self.calc.compare(money1, self.convert(to, money1.currency))
